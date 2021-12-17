@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
+import { IMAGES_SIZES } from '../../constants/image-sizes';
 
 @Component({
   selector: 'app-slider',
@@ -17,6 +18,8 @@ import { Movie } from 'src/app/models/movie';
 export class SliderComponent implements OnInit {
 
   @Input() items: Movie[] = [];
+
+  readonly imagesSizes = IMAGES_SIZES
   imagePrefix: string = 'https://image.tmdb.org/t/p/original/';
 
   currentSlideIndex: number = 0;

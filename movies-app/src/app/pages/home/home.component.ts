@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../../models/movie';
+import { Movie, MovieDto } from '../../models/movie';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -17,20 +17,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesService.getMovies('popular').subscribe(
-      (response: any) => {
-        this.popularMovies = response.results
+      (movies: Movie[]) => {
+        this.popularMovies = movies
       }
     )
 
     this.moviesService.getMovies('top_rated').subscribe(
-      (response: any) => {
-        this.topRatedMovies = response.results
+      (movies: Movie[]) => {
+        this.topRatedMovies = movies
       }
     )
 
     this.moviesService.getMovies('upcoming').subscribe(
-      (response: any) => {
-        this.upcomingMovies = response.results
+      (movies: Movie[]) => {
+        this.upcomingMovies = movies
       }
     )
   }

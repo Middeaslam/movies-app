@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Movie } from '../../models/movie';
+import { IMAGES_SIZES } from '../../constants/image-sizes';
 
 @Component({
   selector: 'movie-item',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-item.component.scss']
 })
 export class MovieItemComponent implements OnInit {
+  @Input() itemData: Movie | null = null
+
+  imagesSizes = IMAGES_SIZES
 
   constructor() { }
 
