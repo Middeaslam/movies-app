@@ -6,10 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MoviesService {
+  baseUrl: string = 'https://api.themoviedb.org/3';
+  apiKey: string = '125ea7918283e3e7dafdfbf161937dda';
 
   constructor(private http: HttpClient) { }
 
-  getMovies() {
-    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=125ea7918283e3e7dafdfbf161937dda')
+  getMovies(type: string = 'upcoming') {
+    return this.http.get(`${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`)
   }
 }
